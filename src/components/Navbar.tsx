@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown, UserCircle } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
+
 
 interface NavbarProps {
   showAnnouncement: boolean;
@@ -121,8 +121,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
               </div>
             ))}
 
-            <div className="flex items-center space-x-4">
-              <ThemeToggle />
+            
 
               {isAuthenticated ? (
                 <div className="relative group">
@@ -166,7 +165,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
                     to="/signup"
                     className="bg-rose-600 text-white px-4 py-2 rounded-lg hover:bg-rose-700 transition-colors"
                   >
-                    Sign Up
+                    Register
                   </Link>
                 </div>
               )}
@@ -181,7 +180,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </div>
+      
 
       {/* Mobile Navigation */}
       {isOpen && (
@@ -212,10 +211,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
               )}
             </div>
           ))}
-          <div className="p-6 space-y-4">
-            <div className="flex items-center justify-end">
-              <ThemeToggle />
-            </div>
+          
             {isAuthenticated ? (
               <>
                 {userRole === 'admin' ? (
@@ -259,12 +255,12 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
                   className="block w-full bg-rose-600 text-white text-center px-6 py-2 rounded-lg hover:bg-rose-700 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  Sign Up
+                  Register
                 </Link>
               </>
             )}
           </div>
-        </div>
+        
       )}
     </nav>
   );
