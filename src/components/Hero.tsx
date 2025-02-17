@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play } from 'lucide-react';
+import { Play, Search, Download, GraduationCap, Building2, ArrowRight } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
@@ -28,6 +28,7 @@ const slides = [
 
 function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -130,6 +131,66 @@ function App() {
               <p className="text-white/60 text-center max-w-md">
                 Watch our video to discover why India is the perfect destination for your educational journey
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Action Buttons Section */}
+        <div className="flex flex-wrap gap-4 justify-center my-8 px-6">
+          <button className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25">
+            <GraduationCap className="w-5 h-5" />
+            Apply Now
+          </button>
+          <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
+            <Download className="w-5 h-5" />
+            Download Brochure
+          </button>
+        </div>
+
+        {/* Program Finder Section */}
+        <div className="bg-white rounded-2xl shadow-xl p-8 mx-6 mb-12">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Find Your Perfect Program</h2>
+            
+            {/* Search Bar */}
+            <div className="relative mb-8">
+              <input
+                type="text"
+                placeholder="Search for programs, universities, or courses..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full px-6 py-4 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20 transition-all"
+              />
+              <Search className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            </div>
+
+            {/* Quick Links */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <button className="flex items-center justify-between p-6 rounded-xl border-2 border-gray-100 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/5 transition-all group">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-lg bg-orange-50 text-orange-500">
+                    <GraduationCap className="w-6 h-6" />
+                  </div>
+                  <div className="text-left">
+                    <h3 className="font-semibold text-gray-800">Browse Programs</h3>
+                    <p className="text-sm text-gray-500">Explore courses by field of study</p>
+                  </div>
+                </div>
+                <ArrowRight className="w-5 h-5 text-orange-500 transform group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              <button className="flex items-center justify-between p-6 rounded-xl border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/5 transition-all group">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-lg bg-blue-50 text-blue-500">
+                    <Building2 className="w-6 h-6" />
+                  </div>
+                  <div className="text-left">
+                    <h3 className="font-semibold text-gray-800">Find Universities</h3>
+                    <p className="text-sm text-gray-500">Search by location and ranking</p>
+                  </div>
+                </div>
+                <ArrowRight className="w-5 h-5 text-blue-500 transform group-hover:translate-x-1 transition-transform" />
+              </button>
             </div>
           </div>
         </div>
