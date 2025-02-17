@@ -3,8 +3,8 @@ import { GraduationCap, BookOpen, Clock, Users, Paintbrush, FlaskConical, Briefc
 import CourseCard from '../components/CourseCard';
 
 
-const Courses = () => {
-  const courses = [
+export const courses = [
+
     {
       title: "Medical Courses",
       description: "Explore MBBS, MD, and specialized medical programs with global recognition",
@@ -45,7 +45,10 @@ const Courses = () => {
       bgColor: "bg-red-600",
       hoverColor: "hover:bg-red-700"
     }
-  ];
+];
+
+const Courses = () => {
+
 
 
   return (

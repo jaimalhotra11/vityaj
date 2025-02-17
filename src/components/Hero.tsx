@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Play, Search, Download, GraduationCap, Building2, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import DiscoverIndia from './DiscoverIndia';
+import { Link, useNavigate } from 'react-router-dom';
+import { universities } from '../pages/UniversityList';
+import { courses } from '../pages/Courses';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
@@ -27,10 +30,39 @@ const slides = [
   }
 ];
 
-function App() {
+const Hero = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<{ type: string, name: string, path: string }[]>([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (searchQuery.length > 2) {
+      const lowerQuery = searchQuery.toLowerCase();
+      
+      // Search universities
+      const uniResults = universities
+        .filter(uni => uni.name.toLowerCase().includes(lowerQuery))
+        .map(uni => ({
+          type: 'University',
+          name: uni.name,
+          path: `/universities/${uni.name.toLowerCase().replace(/ /g, '-')}`
+        }));
+
+      // Search courses
+      const courseResults = courses
+        .filter((course: { title: string }) => course.title.toLowerCase().includes(lowerQuery))
+        .map((course: { title: string; link: string }) => ({
+          type: 'Course',
+          name: course.title,
+          path: course.link
+        }));
+
+      setSearchResults([...uniResults, ...courseResults]);
+    } else {
+      setSearchResults([]);
+    }
+  }, [searchQuery]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -163,22 +195,8 @@ function App() {
               <div className="relative">
               <form onSubmit={(e) => {
                 e.preventDefault();
-                const query = searchQuery.toLowerCase();
-                if (query.includes('medical')) {
-                  window.location.href = '/courses/medical';
-                } else if (query.includes('engineering')) {
-                  window.location.href = '/courses/engineering';
-                } else if (query.includes('management')) {
-                  window.location.href = '/courses/management';
-                } else if (query.includes('arts')) {
-                  window.location.href = '/courses/arts';
-                } else if (query.includes('science')) {
-                  window.location.href = '/courses/science';
-                } else if (query.includes('university') || query.includes('college')) {
-                  window.location.href = '/universities';
-                } else {
-                  // Default to courses page if no specific match
-                  window.location.href = '/courses';
+                if (searchResults.length > 0) {
+                  navigate(searchResults[0].path);
                 }
               }}>
                 <input
@@ -196,11 +214,13 @@ function App() {
                 {searchResults.length > 0 && (
                   <div className="absolute z-10 w-full mt-2 bg-white rounded-xl shadow-lg overflow-hidden">
                     {searchResults.map((result, index) => (
-                      <Link
+                      <div
                         key={index}
-                        to={result.path}
-                        className="block px-6 py-3 hover:bg-gray-50 transition-colors"
-                        onClick={() => setSearchResults([])}
+                        onClick={() => {
+                          navigate(result.path);
+                          setSearchResults([]);
+                        }}
+                        className="block px-6 py-3 hover:bg-gray-50 transition-colors cursor-pointer"
                       >
                         <div className="flex items-center gap-3">
                           <div className={`w-2 h-2 rounded-full ${
@@ -213,7 +233,7 @@ function App() {
                             <p className="text-sm text-gray-500 capitalize">{result.type}</p>
                           </div>
                         </div>
-                      </Link>
+                      </div>
                     ))}
                   </div>
                 )}
@@ -254,23 +274,26 @@ function App() {
             </div>
           </div>
         </div>
+
+        {/* Video Modal */}
+        {isVideoModalOpen && (
+          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-8" onClick={() => setIsVideoModalOpen(false)}>
+            <div className="relative w-full max-w-4xl aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                className="absolute inset-0 w-full h-full rounded-lg"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Video Modal */}
-      {isVideoModalOpen && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-8" onClick={() => setIsVideoModalOpen(false)}>
-          <div className="relative w-full max-w-4xl aspect-video">
-            <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-              className="absolute inset-0 w-full h-full rounded-lg"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      )}
+      {/* Discover India Section */}
+      <DiscoverIndia />
     </div>
   );
-}
+};
 
-export default App;
+export default Hero;

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import AnnouncementBar from './components/AnnouncementBar';
-import { scrollToTop } from './utils/scroll';
+import { scrollToTop, setupScrollHandlers } from './utils/scroll';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import StudyDestinations from './components/StudyDestinations';
@@ -59,6 +59,11 @@ function ScrollToTop() {
 
   useEffect(() => {
     scrollToTop();
+    // Setup click handlers for scroll behavior
+    const cleanup = setupScrollHandlers();
+    return () => {
+      cleanup();
+    };
   }, [location]);
 
   return null;
@@ -75,13 +80,12 @@ function App() {
             { text: "🌟 Explore Our Virtual Campus Tours", link: "/universities/virtual-tours" },
             { text: "📅 Upcoming Admission Deadlines - Apply Now!" }
           ]} />
-          <Navbar />
+          <Navbar showAnnouncement={true} />
           <Routes>
             <Route path="/" element={
               <>
                 <Hero />
                 <StudyDestinations />
-                <Finder />
                 <AdmissionFeatures />
                 <Universities />
                 <Accreditations />
