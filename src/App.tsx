@@ -19,6 +19,7 @@ import MbbsIndia from './pages/MbbsIndia';
 import MbbsEurope from './pages/MbbsEurope';
 import UniversityList from './pages/UniversityList';
 import UniversityRankings from './pages/UniversityRankings';
+import UniversityPage from './pages/universities/UniversityPage';
 import VirtualTours from './pages/VirtualTours';
 import CampusLife from './pages/CampusLife';
 import Services from './pages/Services';
@@ -49,6 +50,7 @@ import EngineeringCourses from './pages/EngineeringCourses';
 import ManagementCourses from './pages/ManagementCourses';
 import ArtsCourses from './pages/ArtsCourses';
 import ScienceCourses from './pages/ScienceCourses';
+import Courses from './pages/Courses';
 import './i18n/config';
 
 // ScrollToTop component to handle scroll restoration
@@ -100,6 +102,7 @@ function App() {
             <Route path="/universities/rankings" element={<UniversityRankings />} />
             <Route path="/universities/virtual-tours" element={<VirtualTours />} />
             <Route path="/universities/campus-life" element={<CampusLife />} />
+            <Route path="/universities/:universityName" element={<UniversityPage />} />
             <Route path="/services" element={<Services />} />
             <Route path="/visa-assistance" element={<VisaAssistance />} />
             <Route path="/accommodation" element={<Accommodation />} />
@@ -121,6 +124,8 @@ function App() {
             <Route path="/courses/management" element={<ManagementCourses />} />
             <Route path="/courses/arts" element={<ArtsCourses />} />
             <Route path="/courses/science" element={<ScienceCourses />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/partner-universities" element={<UniversityList />} />
           </Routes>
           <Footer />
           <WhatsAppButton />

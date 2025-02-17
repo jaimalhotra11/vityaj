@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { Search, MapPin, GraduationCap, Users, DollarSign } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const UniversityList = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCountry, setSelectedCountry] = useState('all');
-  const [visibleUniversities, setVisibleUniversities] = useState(6); // Number of universities to show initially
-
-  const universities = [
+const universities = [
     {
       name: "SRM Kattankulathur",
       location: "Chennai, India",
@@ -297,7 +293,12 @@ const UniversityList = () => {
       image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
       country: "India"
     }
-  ];
+];
+
+const UniversityList = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState('all');
+  const [visibleUniversities, setVisibleUniversities] = useState(6); // Number of universities to show initially
 
   const filteredUniversities = universities.filter((university) => {
     const matchesSearch = university.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -383,9 +384,12 @@ const UniversityList = () => {
                     </div>
                   </div>
                   <div className="mt-4">
-                    <button className="w-full bg-rose-600 text-white py-2 rounded-lg hover:bg-rose-700 transition-colors">
+                    <Link 
+                      to={`/universities/${university.name.toLowerCase().replace(/ /g, '-')}`}
+                      className="w-full bg-rose-600 text-white py-2 rounded-lg hover:bg-rose-700 transition-colors flex justify-center"
+                    >
                       View Details
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -420,4 +424,5 @@ const UniversityList = () => {
   );
 };
 
+export { universities };
 export default UniversityList;

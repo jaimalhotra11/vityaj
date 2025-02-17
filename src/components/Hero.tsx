@@ -30,6 +30,7 @@ const slides = [
 function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<{ type: string, name: string, path: string }[]>([]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -159,43 +160,97 @@ function App() {
             
             {/* Search Bar */}
             <div className="relative mb-8">
-              <input
-                type="text"
-                placeholder="Search for programs, universities, or courses..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20 transition-all"
-              />
-              <Search className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <div className="relative">
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                const query = searchQuery.toLowerCase();
+                if (query.includes('medical')) {
+                  window.location.href = '/courses/medical';
+                } else if (query.includes('engineering')) {
+                  window.location.href = '/courses/engineering';
+                } else if (query.includes('management')) {
+                  window.location.href = '/courses/management';
+                } else if (query.includes('arts')) {
+                  window.location.href = '/courses/arts';
+                } else if (query.includes('science')) {
+                  window.location.href = '/courses/science';
+                } else if (query.includes('university') || query.includes('college')) {
+                  window.location.href = '/universities';
+                } else {
+                  // Default to courses page if no specific match
+                  window.location.href = '/courses';
+                }
+              }}>
+                <input
+                  type="text"
+                  placeholder="Search for programs, universities, or courses..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full px-6 py-4 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20 transition-all"
+                />
+              </form>
+
+                <button type="submit" className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-500 transition-colors">
+                <Search className="w-5 h-5" />
+              </button>
+                {searchResults.length > 0 && (
+                  <div className="absolute z-10 w-full mt-2 bg-white rounded-xl shadow-lg overflow-hidden">
+                    {searchResults.map((result, index) => (
+                      <Link
+                        key={index}
+                        to={result.path}
+                        className="block px-6 py-3 hover:bg-gray-50 transition-colors"
+                        onClick={() => setSearchResults([])}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-2 h-2 rounded-full ${
+                            result.type === 'Course' ? 'bg-blue-500' :
+                            result.type === 'University' ? 'bg-green-500' :
+                            'bg-purple-500'
+                          }`} />
+                          <div>
+                            <p className="font-medium text-gray-800">{result.name}</p>
+                            <p className="text-sm text-gray-500 capitalize">{result.type}</p>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Quick Links */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <button className="flex items-center justify-between p-6 rounded-xl border-2 border-gray-100 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/5 transition-all group">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-lg bg-orange-50 text-orange-500">
-                    <GraduationCap className="w-6 h-6" />
+              <Link to="/courses">
+                <button className="flex items-center justify-between p-6 rounded-xl border-2 border-gray-100 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/5 transition-all group">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-lg bg-orange-50 text-orange-500">
+                      <GraduationCap className="w-6 h-6" />
+                    </div>
+                    <div className="text-left">
+                      <h3 className="font-semibold text-gray-800">Browse Programs</h3>
+                      <p className="text-sm text-gray-500">Explore courses by field of study</p>
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <h3 className="font-semibold text-gray-800">Browse Programs</h3>
-                    <p className="text-sm text-gray-500">Explore courses by field of study</p>
-                  </div>
-                </div>
-                <ArrowRight className="w-5 h-5 text-orange-500 transform group-hover:translate-x-1 transition-transform" />
-              </button>
+                  <ArrowRight className="w-5 h-5 text-orange-500 transform group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
 
-              <button className="flex items-center justify-between p-6 rounded-xl border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/5 transition-all group">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-lg bg-blue-50 text-blue-500">
-                    <Building2 className="w-6 h-6" />
+              <Link to="/partner-universities">
+                <button className="flex items-center justify-between p-6 rounded-xl border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/5 transition-all group">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-lg bg-blue-50 text-blue-500">
+                      <Building2 className="w-6 h-6" />
+                    </div>
+                    <div className="text-left">
+                      <h3 className="font-semibold text-gray-800">Find Universities</h3>
+                      <p className="text-sm text-gray-500">Search by location and ranking</p>
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <h3 className="font-semibold text-gray-800">Find Universities</h3>
-                    <p className="text-sm text-gray-500">Search by location and ranking</p>
-                  </div>
-                </div>
-                <ArrowRight className="w-5 h-5 text-blue-500 transform group-hover:translate-x-1 transition-transform" />
-              </button>
+                  <ArrowRight className="w-5 h-5 text-blue-500 transform group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
             </div>
           </div>
         </div>
