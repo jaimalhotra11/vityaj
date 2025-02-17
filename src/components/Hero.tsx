@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Play, Search, Download, GraduationCap, Building2, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
@@ -84,13 +85,15 @@ function App() {
                           }`}>
                             {slide.description}
                           </p>
-                          <button className={`bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-1000 delay-700 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 ${
-                            isActive 
-                              ? 'translate-y-0 opacity-100' 
-                              : 'translate-y-4 opacity-0'
-                          }`}>
-                            Apply Now
-                          </button>
+                          <Link to="/apply">
+                            <button className={`bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-1000 delay-700 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 ${
+                              isActive 
+                                ? 'translate-y-0 opacity-100' 
+                                : 'translate-y-4 opacity-0'
+                            }`}>
+                              Apply Now
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -137,10 +140,12 @@ function App() {
 
         {/* Action Buttons Section */}
         <div className="flex flex-wrap gap-4 justify-center my-8 px-6">
-          <button className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25">
-            <GraduationCap className="w-5 h-5" />
-            Apply Now
-          </button>
+          <Link to="/apply">
+            <button className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25">
+              <GraduationCap className="w-5 h-5" />
+              Apply Now
+            </button>
+          </Link>
           <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
             <Download className="w-5 h-5" />
             Download Brochure
