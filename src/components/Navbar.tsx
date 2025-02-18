@@ -246,7 +246,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
                   className="block w-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 text-center px-6 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                >
+                
                   Login
                 </Link>
                 <Link
@@ -266,4 +266,4 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
 };
 
 export default Navbar;
-export default Navbar;
+
