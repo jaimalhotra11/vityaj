@@ -101,7 +101,7 @@ function App() {
             <Route path="/why-study-india/cost" element={<CostComparison />} />
             <Route path="/why-study-india/careers" element={<CareerOpportunities />} />
             <Route path="/mbbs-india" element={<StudyInIndia />} />
-            <Route path="/mbbs-europe" element={<MbbsEurope />} />
+            <Route path="/mbbs-europe" element={<MbbsInEurope />} />
             <Route path="/universities" element={<UniversityList />} />
             <Route path="/universities/rankings" element={<UniversityRankings />} />
             <Route path="/universities/virtual-tours" element={<VirtualTours />} />
