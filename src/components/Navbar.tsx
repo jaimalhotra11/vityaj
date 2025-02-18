@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown, UserCircle } from 'lucide-react';
-
+import ThemeToggle from './ThemeToggle';
 
 interface NavbarProps {
   showAnnouncement: boolean;
@@ -24,26 +24,14 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
       ]
     },
     {
-      name: 'MBBS/MD',
+      name: 'Study in India',
       path: '/mbbs-india',
-      dropdown: [
-        { name: 'Study in India', path: '/mbbs-india' },
-        { name: 'Study in Europe', path: '/mbbs-europe' },
-        { name: 'Admission Process', path: '/mbbs-india#admission' },
-        { name: 'Fee Structure', path: '/mbbs-india#fees' },
-        { name: 'Scholarships', path: '/mbbs-india#scholarships' }
-      ]
+      dropdown: []
     },
     {
-      name: 'Courses',
-      path: '/courses',
-      dropdown: [
-        { name: 'Medical Courses', path: '/courses/medical' },
-        { name: 'Engineering', path: '/courses/engineering' },
-        { name: 'Management', path: '/courses/management' },
-        { name: 'Arts & Humanities', path: '/courses/arts' },
-        { name: 'Science & Technology', path: '/courses/science' }
-      ]
+      name: 'MBBS in Europe',
+      path: '/mbbs-europe',
+      dropdown: []
     },
     {
       name: 'Universities',
@@ -83,7 +71,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
   };
 
   return (
-    <nav className={`bg-white dark:bg-gray-900 shadow-lg fixed w-full z-40 transition-all ${showAnnouncement ? 'top-8' : 'top-0'}`}>
+    <nav className={`bg-white dark:bg-gray-900 shadow-lg w-full z-40 transition-all ${showAnnouncement ? 'top-8' : 'top-0'}`}>
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="text-2xl font-bold text-rose-600">
@@ -104,24 +92,29 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
                   className="flex items-center space-x-1 text-gray-700 dark:text-gray-200 hover:text-rose-600 dark:hover:text-rose-400 transition-colors py-2"
                 >
                   <span>{item.name}</span>
-                  <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                  {item.dropdown.length > 0 && (
+                    <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                  )}
                 </Link>
 
-                <div className="absolute left-0 mt-0 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 bg-white dark:bg-gray-800 rounded-lg shadow-xl py-2 z-50">
-                  {item.dropdown.map((subItem) => (
-                    <Link
-                      key={subItem.name}
-                      to={subItem.path}
-                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
-                    >
-                      {subItem.name}
-                    </Link>
-                  ))}
-                </div>
+                {item.dropdown.length > 0 && (
+                  <div className="absolute left-0 mt-0 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 bg-white dark:bg-gray-800 rounded-lg shadow-xl py-2 z-50">
+                    {item.dropdown.map((subItem) => (
+                      <Link
+                        key={subItem.name}
+                        to={subItem.path}
+                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
+                      >
+                        {subItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
 
-            
+            <div className="flex items-center space-x-4">
+              <ThemeToggle />
 
               {isAuthenticated ? (
                 <div className="relative group">
@@ -165,7 +158,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
                     to="/signup"
                     className="bg-rose-600 text-white px-4 py-2 rounded-lg hover:bg-rose-700 transition-colors"
                   >
-                    Register
+                    Sign Up
                   </Link>
                 </div>
               )}
@@ -180,7 +173,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      
+      </div>
 
       {/* Mobile Navigation */}
       {isOpen && (
@@ -192,10 +185,12 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
                 onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
               >
                 <span>{item.name}</span>
-                <ChevronDown className={`w-4 h-4 transform transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
+                {item.dropdown.length > 0 && (
+                  <ChevronDown className={`w-4 h-4 transform transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
+                )}
               </button>
               
-              {activeDropdown === item.name && (
+              {activeDropdown === item.name && item.dropdown.length > 0 && (
                 <div className="mt-2 space-y-2">
                   {item.dropdown.map((subItem) => (
                     <Link
@@ -211,7 +206,10 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
               )}
             </div>
           ))}
-          
+          <div className="p-6 space-y-4">
+            <div className="flex items-center justify-end">
+              <ThemeToggle />
+            </div>
             {isAuthenticated ? (
               <>
                 {userRole === 'admin' ? (
@@ -248,22 +246,24 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
                   className="block w-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 text-center px-6 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
+                >
                   Login
                 </Link>
                 <Link
                   to="/signup"
-                  className="block w-full bg-rose-600 text-white text-center px-6 py-2 rounded-lg hover:bg-rose-700 transition-colors"
+                  className="block w-full bg-rose-600 text-white text-center px-6 py-3 rounded-lg hover:bg-rose-700 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  Register
+                  Sign Up
                 </Link>
               </>
             )}
           </div>
-        
+        </div>
       )}
     </nav>
   );
 };
 
+export default Navbar;
 export default Navbar;

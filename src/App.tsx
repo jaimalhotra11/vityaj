@@ -15,8 +15,8 @@ import WhatsAppButton from './components/WhatsAppButton';
 import Chatbot from './components/Chatbot';
 import Accreditations from './components/Accreditations';
 import WhyStudyIndia from './pages/WhyStudyIndia';
-import MbbsIndia from './pages/MbbsIndia';
-import MbbsEurope from './pages/MbbsEurope';
+import StudyInIndia from './pages/StudyInIndia';
+import MbbsInEurope from './pages/MbbsInEurope';
 import UniversityList from './pages/UniversityList';
 import UniversityRankings from './pages/UniversityRankings';
 import UniversityPage from './pages/universities/UniversityPage';
@@ -100,7 +100,7 @@ function App() {
             <Route path="/why-study-india/recognition" element={<GlobalRecognition />} />
             <Route path="/why-study-india/cost" element={<CostComparison />} />
             <Route path="/why-study-india/careers" element={<CareerOpportunities />} />
-            <Route path="/mbbs-india" element={<MbbsIndia />} />
+            <Route path="/mbbs-india" element={<StudyInIndia />} />
             <Route path="/mbbs-europe" element={<MbbsEurope />} />
             <Route path="/universities" element={<UniversityList />} />
             <Route path="/universities/rankings" element={<UniversityRankings />} />

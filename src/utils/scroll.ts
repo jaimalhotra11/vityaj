@@ -27,6 +27,12 @@ const isCenterClick = (event: MouseEvent): boolean => {
   const centerYStart = windowHeight / 3;
   const centerYEnd = (windowHeight / 3) * 2;
   
+  // Check if click originated from Finder component
+  const target = event.target as HTMLElement;
+  if (target.closest('.finder-container')) {
+    return false;
+  }
+  
   return (
     event.clientX > centerXStart &&
     event.clientX < centerXEnd &&
@@ -37,7 +43,7 @@ const isCenterClick = (event: MouseEvent): boolean => {
 
 export const setupScrollHandlers = () => {
   const handleClick = (event: MouseEvent) => {
-    // Only scroll if click is in center area
+    // Only scroll if click is in center area and not from Finder
     if (isCenterClick(event)) {
       scrollToBottom();
     }
