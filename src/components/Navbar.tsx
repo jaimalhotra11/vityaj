@@ -55,7 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
   };
 
   return (
-    <nav className={`bg-white dark:bg-gray-900 shadow-lg w-full z-40 transition-all duration-300 sticky ${showAnnouncement ? 'top-8' : 'top-0'}`}>
+    <nav className={`bg-white dark:bg-gray-900 shadow-lg w-full z-40 transition-all duration-300 sticky top-0`}>
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="text-2xl font-bold text-rose-600 tracking-tight hover:text-rose-700 transition-colors">
