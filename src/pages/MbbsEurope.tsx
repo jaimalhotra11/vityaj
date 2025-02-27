@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stethoscope, GraduationCap, Award, DollarSign, Clock, MapPin, Globe, Users, Star, BookOpen } from 'lucide-react';
+import { Stethoscope, GraduationCap, Award, DollarSign, Clock, MapPin, BookOpen, Users, Star, FileText, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const MbbsEurope = () => {
@@ -15,14 +15,14 @@ const MbbsEurope = () => {
       description: "Degrees recognized worldwide including WHO and European Medical Council"
     },
     {
-      icon: <Globe className="w-12 h-12 text-rose-600" />,
-      title: "International Exposure",
-      description: "Diverse student community and multicultural environment"
+      icon: <DollarSign className="w-12 h-12 text-rose-600" />,
+      title: "Affordable Fees",
+      description: "Quality medical education at competitive prices compared to Western universities"
     },
     {
       icon: <Clock className="w-12 h-12 text-rose-600" />,
       title: "Duration",
-      description: "6 years including clinical rotations"
+      description: "Typically 6 years including clinical rotations"
     }
   ];
 

@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Blog from './pages/Blog';
+import DiscoverIndia from './pages/DiscoverIndia';
 import { ThemeProvider } from './contexts/ThemeContext';
 import AnnouncementBar from './components/AnnouncementBar';
 import { scrollToTop, setupScrollHandlers } from './utils/scroll';
@@ -130,6 +132,8 @@ function App() {
             <Route path="/courses/science" element={<ScienceCourses />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/partner-universities" element={<UniversityList />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/discover-india" element={<DiscoverIndia />} />
           </Routes>
           <Footer />
           <WhatsAppButton />
