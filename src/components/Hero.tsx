@@ -5,7 +5,7 @@ import 'swiper/css/effect-fade';
 import { Play, Search, Download, GraduationCap, Building2, ArrowRight } from 'lucide-react';
 import DiscoverIndia from './DiscoverIndia';
 import { Link, useNavigate } from 'react-router-dom';
-import { universities } from '../pages/UniversityList';
+import { universities } from '../pages/universities/UniversityList';
 import courses from '../pages/Courses';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';

@@ -19,7 +19,7 @@ import Accreditations from './components/Accreditations';
 import WhyStudyIndia from './pages/WhyStudyIndia';
 import StudyInIndia from './pages/StudyInIndia';
 import MbbsInEurope from './pages/MbbsInEurope';
-import UniversityList from './pages/UniversityList';
+import UniversityList from './pages/universities/UniversityList';
 import UniversityRankings from './pages/UniversityRankings';
 import UniversityPage from './pages/universities/UniversityPage';
 import VirtualTours from './pages/VirtualTours';

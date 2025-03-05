@@ -14,7 +14,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
 
   const navItems = [
     {
-      name: 'Explore Courses',
+      name: 'Study In India',
       path: '/mbbs-india',
       dropdown: [
         { name: 'Course Search', path: '/Courses' },
