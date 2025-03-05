@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/effect-fade';
 import { Play, Search, Download, GraduationCap, Building2, ArrowRight } from 'lucide-react';
 import DiscoverIndia from './DiscoverIndia';
 import { Link, useNavigate } from 'react-router-dom';
