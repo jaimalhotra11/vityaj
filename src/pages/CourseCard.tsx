@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-
+import courses from '../pages/Courses';
 
 interface CourseCardProps {
   title: string;
@@ -13,7 +13,10 @@ interface CourseCardProps {
   }>;
   bgColor: string;
   hoverColor: string;
+  averageSalary: string; // Added property
+  jobRoles: string[]; // Added property
 }
+
 
 const CourseCard: React.FC<CourseCardProps> = ({
   title,

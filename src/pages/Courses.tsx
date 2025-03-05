@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Code, Scale, BookOpen, Camera, BarChart as ChartBar, FlaskRound as Flask, 
          Stethoscope, Palette, GraduationCap, Newspaper, Search, Filter, X } from 'lucide-react';
-import TestComponent from './TestComponent';
+import CourseCard from './CourseCard';
+
 
 
 const courses = [
@@ -256,7 +257,20 @@ const Courses = () => {
 
         {/* Course Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <TestComponent />
+          {filteredCourses.map((course, index) => (
+            <CourseCard
+              key={index}
+              title={course.title}
+              description={course.description}
+              icon={course.icon}
+              subcourses={course.subcourses}
+              bgColor={course.bgColor}
+              hoverColor={course.hoverColor}
+              averageSalary={course.averageSalary}
+              jobRoles={course.jobRoles}
+            />
+          ))}
+
 
         </div>
 
