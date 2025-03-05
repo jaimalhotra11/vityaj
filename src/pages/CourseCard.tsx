@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
+import courses from '../pages/Courses';
 
 interface CourseCardProps {
   title: string;
