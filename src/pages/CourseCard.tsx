@@ -13,10 +13,7 @@ interface CourseCardProps {
   }>;
   bgColor: string;
   hoverColor: string;
-  averageSalary: string; // Added property
-  jobRoles: string[]; // Added property
 }
-
 
 const CourseCard: React.FC<CourseCardProps> = ({
   title,
