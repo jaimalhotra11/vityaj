@@ -96,11 +96,7 @@ const DiscoverIndia = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-16 text-center"
         >
-          <h3 className="text-3xl font-bold text-gray-800 mb-4">Experience India Like Never Before</h3>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Whether it's its historical marvels, thriving economy, or academic brilliance, India has something for
-            everyone. Start your journey now!
-          </p>
+          
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

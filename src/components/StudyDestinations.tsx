@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GraduationCap, Globe, DollarSign, ArrowRight } from 'lucide-react';
+import { GraduationCap, Globe, DollarSign, ArrowRight, PhoneCall } from 'lucide-react';
 
 const StudyDestinations = () => {
   const destinations = [
@@ -18,7 +18,7 @@ const StudyDestinations = () => {
       icon: <DollarSign className="w-8 h-8 text-rose-600" />
     },
     {
-      title: "Study in Europe",
+      title: "Affordable mbbs in Europe",
       description: "Experience excellence in education with European standards",
       features: [
         "EU recognized degrees",
@@ -36,7 +36,7 @@ const StudyDestinations = () => {
     <section className="py-20 bg-white dark:bg-gray-800">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center mb-12">Choose Your Study Destination</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {destinations.map((destination, index) => (
             <div 
               key={index}
@@ -77,6 +77,17 @@ const StudyDestinations = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Counselling Button */}
+        <div className="flex justify-center">
+          <Link
+            to="/counselling"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-rose-600 to-rose-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:shadow-rose-500/25 hover:scale-105 transition-all duration-300"
+          >
+            <PhoneCall className="w-6 h-6" />
+            Avail Free Counselling
+          </Link>
         </div>
       </div>
     </section>

@@ -141,7 +141,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
                     className="block bg-rose-600 text-white text-center px-7 py-2.5 rounded-lg hover:bg-rose-700 transition-colors font-medium text-sm shadow-sm hover:shadow"
                     onClick={() => setIsOpen(false)}
                   >
-                    Sign Up
+                    Register
                   </Link>
                 </>
               )}
@@ -246,7 +246,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAnnouncement }) => {
                       className="block w-full bg-rose-600 text-white text-center px-4 py-3 rounded-lg hover:bg-rose-700 transition-colors font-medium shadow-sm"
                       onClick={() => setIsOpen(false)}
                     >
-                      Sign Up
+                      Register
                     </Link>
                   </>
                 )}

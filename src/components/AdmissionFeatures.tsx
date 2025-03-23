@@ -114,7 +114,7 @@ const AdmissionFeatures = () => {
 
         {/* Admission Process */}
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-center mb-12">Our Admission Process</h3>
+          <h3 className="text-2xl font-bold text-center mb-12">Admission Process</h3>
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Process Timeline Line */}

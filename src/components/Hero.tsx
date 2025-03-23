@@ -175,75 +175,9 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Action Buttons Section */}
-        <div className="flex flex-wrap gap-4 justify-center my-6 sm:my-8">
-          <Link to="/apply">
-            <button className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25">
-              <GraduationCap className="w-5 h-5" />
-              Apply Now
-            </button>
-          </Link>
-          <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
-            <Download className="w-5 h-5" />
-            Download Brochure
-          </button>
-        </div>
-
         {/* Program Finder Section */}
-        <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 mb-12">
+        <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 mb-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center">Find Your Perfect Program</h2>
-            
-            {/* Search Bar */}
-            <div className="relative mb-8">
-              <div className="relative">
-                <form onSubmit={(e) => {
-                  e.preventDefault();
-                  if (searchResults.length > 0) {
-                    navigate(searchResults[0].path);
-                  }
-                }}>
-                  <input
-                    type="text"
-                    placeholder="Search for programs, universities, or courses..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20 transition-all text-sm sm:text-base"
-                  />
-                </form>
-
-                <button type="submit" className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-500 transition-colors">
-                  <Search className="w-5 h-5" />
-                </button>
-                {searchResults.length > 0 && (
-                  <div className="absolute z-10 w-full mt-2 bg-white rounded-xl shadow-lg overflow-hidden">
-                    {searchResults.map((result, index) => (
-                      <div
-                        key={index}
-                        onClick={() => {
-                          navigate(result.path);
-                          setSearchResults([]);
-                        }}
-                        className="block px-4 sm:px-6 py-3 hover:bg-gray-50 transition-colors cursor-pointer"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`w-2 h-2 rounded-full ${
-                            result.type === 'Course' ? 'bg-blue-500' :
-                            result.type === 'University' ? 'bg-green-500' :
-                            'bg-purple-500'
-                          }`} />
-                          <div>
-                            <p className="font-medium text-gray-800">{result.name}</p>
-                            <p className="text-sm text-gray-500 capitalize">{result.type}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-
             {/* Quick Links */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link to="/courses">
@@ -277,6 +211,20 @@ const Hero = () => {
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* Action Buttons Section */}
+        <div className="flex flex-wrap gap-4 justify-center mb-12">
+          <Link to="/apply">
+            <button className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25">
+              <GraduationCap className="w-5 h-5" />
+              Apply Now
+            </button>
+          </Link>
+          <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
+            <Download className="w-5 h-5" />
+            Download Brochure
+          </button>
         </div>
 
         {/* Video Modal */}

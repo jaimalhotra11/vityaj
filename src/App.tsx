@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Blog from './pages/Blog';
 import DiscoverIndia from './pages/DiscoverIndia';
 import { ThemeProvider } from './contexts/ThemeContext';
-import AnnouncementBar from './components/AnnouncementBar';
 import { scrollToTop, setupScrollHandlers } from './utils/scroll';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -77,18 +76,13 @@ function App() {
       <Router>
         <ScrollToTop />
         <div className="min-h-screen bg-gradient-to-b from-rose-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-200">
-          <AnnouncementBar messages={[
-            { text: "🎉 New Scholarship Opportunities Available!", link: "/scholarships" },
-            { text: "🌟 Explore Our Virtual Campus Tours", link: "/universities/virtual-tours" },
-            { text: "📅 Upcoming Admission Deadlines - Apply Now!" }
-          ]} />
-          <Navbar showAnnouncement={true} />
+          <Navbar showAnnouncement={false} />
           <Routes>
             <Route path="/" element={
               <>
                 <Hero />
-                <StudyDestinations />
                 <AdmissionFeatures />
+                <StudyDestinations />
                 <Universities />
                 <Accreditations />
                 <Testimonials />
