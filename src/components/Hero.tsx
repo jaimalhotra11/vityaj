@@ -69,10 +69,45 @@ const Hero = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
-          {/* Left Side - Text Carousel */}
-          <div className="relative h-[600px] rounded-2xl overflow-hidden bg-white shadow-xl order-2 lg:order-1">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main Grid Container */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 py-6 md:py-8">
+          {/* Video Preview - Now First on Mobile */}
+          <div className="relative h-[500px] sm:h-[550px] md:h-[600px] rounded-2xl overflow-hidden group cursor-pointer shadow-xl order-1 lg:order-2" onClick={() => setIsVideoModalOpen(true)}>
+            <div className="absolute inset-0 bg-[#1a237e] pattern-grid-white/[0.1]" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 sm:p-8">
+              {/* INDIA Text */}
+              <div className="relative w-full max-w-xl aspect-[3/1] mb-6 sm:mb-8">
+                <div className="absolute inset-0 grid grid-cols-5 gap-2">
+                  {['I', 'N', 'D', 'I', 'A'].map((letter, index) => (
+                    <div key={index} className="relative overflow-hidden rounded-lg bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm group-hover:from-white/15 group-hover:to-white/10 transition-all duration-500">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">{letter}</span>
+                      </div>
+                      {index === 2 && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="relative group-hover:scale-110 transition-transform duration-500">
+                            <div className="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-20" />
+                            <button className="relative bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full p-3 sm:p-4 shadow-lg shadow-red-500/25">
+                              <Play className="w-6 h-6 sm:w-8 sm:h-8" fill="white" />
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">STUDY IN</h2>
+              <h3 className="text-lg sm:text-xl text-white/80 mb-6 sm:mb-8 text-center">EXPERIENCE</h3>
+              <p className="text-sm sm:text-base text-white/60 text-center max-w-md px-4">
+                Watch our video to discover why India is the perfect destination for your educational journey
+              </p>
+            </div>
+          </div>
+
+          {/* Text Carousel - Now Second on Mobile */}
+          <div className="relative h-[500px] sm:h-[550px] md:h-[600px] rounded-2xl overflow-hidden bg-white shadow-xl order-2 lg:order-1">
             <Swiper
               modules={[Autoplay, EffectFade]}
               effect="fade"
@@ -90,17 +125,17 @@ const Hero = () => {
               {slides.map((slide, index) => (
                 <SwiperSlide key={index}>
                   {({ isActive }) => (
-                    <div className="relative h-full w-full flex items-center p-12 overflow-hidden">
+                    <div className="relative h-full w-full flex items-center p-6 sm:p-8 md:p-12 overflow-hidden">
                       <div className="absolute top-0 right-0 w-[150%] h-[150%] opacity-5 -rotate-45">
                         <div className={`w-full h-full bg-gradient-to-r ${slide.gradient}`} />
                       </div>
-                      <div className="relative z-10">
+                      <div className="relative z-10 w-full">
                         <div className={`transform transition-all duration-1000 ${
                           isActive 
                             ? 'translate-y-0 opacity-100' 
                             : 'translate-y-4 opacity-0'
                         }`}>
-                          <h1 className="text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                             {slide.title.split(' ').map((word, i) => (
                               <span key={i} className={`inline-block ${
                                 word.toLowerCase() === 'india' 
@@ -114,7 +149,7 @@ const Hero = () => {
                           <div className={`h-1 w-24 bg-gradient-to-r from-orange-500 to-orange-600 mb-6 transform transition-all duration-1000 delay-300 ${
                             isActive ? 'scale-x-100' : 'scale-x-0'
                           }`} />
-                          <p className={`text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl transform transition-all duration-1000 delay-500 ${
+                          <p className={`text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl transform transition-all duration-1000 delay-500 ${
                             isActive 
                               ? 'translate-y-0 opacity-100' 
                               : 'translate-y-4 opacity-0'
@@ -122,7 +157,7 @@ const Hero = () => {
                             {slide.description}
                           </p>
                           <Link to="/apply">
-                            <button className={`bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-1000 delay-700 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 ${
+                            <button className={`bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-1000 delay-700 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 ${
                               isActive 
                                 ? 'translate-y-0 opacity-100' 
                                 : 'translate-y-4 opacity-0'
@@ -138,82 +173,48 @@ const Hero = () => {
               ))}
             </Swiper>
           </div>
-
-          {/* Right Side - Video Preview */}
-          <div className="relative h-[600px] rounded-2xl overflow-hidden group cursor-pointer shadow-xl order-1 lg:order-2" onClick={() => setIsVideoModalOpen(true)}>
-            <div className="absolute inset-0 bg-[#1a237e] pattern-grid-white/[0.1]" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
-              {/* INDIA Text */}
-              <div className="relative w-full max-w-xl aspect-[3/1] mb-8">
-                <div className="absolute inset-0 grid grid-cols-5 gap-2">
-                  {['I', 'N', 'D', 'I', 'A'].map((letter, index) => (
-                    <div key={index} className="relative overflow-hidden rounded-lg bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm group-hover:from-white/15 group-hover:to-white/10 transition-all duration-500">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-6xl font-bold text-white">{letter}</span>
-                      </div>
-                      {index === 2 && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="relative group-hover:scale-110 transition-transform duration-500">
-                            <div className="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-20" />
-                            <button className="relative bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full p-4 shadow-lg shadow-red-500/25">
-                              <Play className="w-8 h-8" fill="white" />
-                            </button>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <h2 className="text-3xl font-bold text-white mb-2 text-center">STUDY IN</h2>
-              <h3 className="text-xl text-white/80 mb-8 text-center">EXPERIENCE</h3>
-              <p className="text-white/60 text-center max-w-md">
-                Watch our video to discover why India is the perfect destination for your educational journey
-              </p>
-            </div>
-          </div>
         </div>
 
         {/* Action Buttons Section */}
-        <div className="flex flex-wrap gap-4 justify-center my-8 px-6">
+        <div className="flex flex-wrap gap-4 justify-center my-6 sm:my-8">
           <Link to="/apply">
-            <button className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25">
+            <button className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25">
               <GraduationCap className="w-5 h-5" />
               Apply Now
             </button>
           </Link>
-          <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
+          <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
             <Download className="w-5 h-5" />
             Download Brochure
           </button>
         </div>
 
         {/* Program Finder Section */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mx-6 mb-12">
+        <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 mb-12">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Find Your Perfect Program</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center">Find Your Perfect Program</h2>
             
             {/* Search Bar */}
             <div className="relative mb-8">
               <div className="relative">
-              <form onSubmit={(e) => {
-                e.preventDefault();
-                if (searchResults.length > 0) {
-                  navigate(searchResults[0].path);
-                }
-              }}>
-                <input
-                  type="text"
-                  placeholder="Search for programs, universities, or courses..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-6 py-4 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20 transition-all"
-                />
-              </form>
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  if (searchResults.length > 0) {
+                    navigate(searchResults[0].path);
+                  }
+                }}>
+                  <input
+                    type="text"
+                    placeholder="Search for programs, universities, or courses..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20 transition-all text-sm sm:text-base"
+                  />
+                </form>
 
-                <button type="submit" className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-500 transition-colors">
-                <Search className="w-5 h-5" />
-              </button>
+                <button type="submit" className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-500 transition-colors">
+                  <Search className="w-5 h-5" />
+                </button>
                 {searchResults.length > 0 && (
                   <div className="absolute z-10 w-full mt-2 bg-white rounded-xl shadow-lg overflow-hidden">
                     {searchResults.map((result, index) => (
@@ -223,7 +224,7 @@ const Hero = () => {
                           navigate(result.path);
                           setSearchResults([]);
                         }}
-                        className="block px-6 py-3 hover:bg-gray-50 transition-colors cursor-pointer"
+                        className="block px-4 sm:px-6 py-3 hover:bg-gray-50 transition-colors cursor-pointer"
                       >
                         <div className="flex items-center gap-3">
                           <div className={`w-2 h-2 rounded-full ${
@@ -246,10 +247,10 @@ const Hero = () => {
             {/* Quick Links */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link to="/courses">
-                <button className="flex items-center justify-between p-6 rounded-xl border-2 border-gray-100 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/5 transition-all group">
+                <button className="flex items-center justify-between p-4 sm:p-6 rounded-xl border-2 border-gray-100 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/5 transition-all group w-full">
                   <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-orange-50 text-orange-500">
-                      <GraduationCap className="w-6 h-6" />
+                    <div className="p-2 sm:p-3 rounded-lg bg-orange-50 text-orange-500">
+                      <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="text-left">
                       <h3 className="font-semibold text-gray-800">Browse Programs</h3>
@@ -261,10 +262,10 @@ const Hero = () => {
               </Link>
 
               <Link to="/partner-universities">
-                <button className="flex items-center justify-between p-6 rounded-xl border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/5 transition-all group">
+                <button className="flex items-center justify-between p-4 sm:p-6 rounded-xl border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/5 transition-all group w-full">
                   <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-blue-50 text-blue-500">
-                      <Building2 className="w-6 h-6" />
+                    <div className="p-2 sm:p-3 rounded-lg bg-blue-50 text-blue-500">
+                      <Building2 className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="text-left">
                       <h3 className="font-semibold text-gray-800">Find Universities</h3>
@@ -280,7 +281,7 @@ const Hero = () => {
 
         {/* Video Modal */}
         {isVideoModalOpen && (
-          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-8" onClick={() => setIsVideoModalOpen(false)}>
+          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 sm:p-8" onClick={() => setIsVideoModalOpen(false)}>
             <div className="relative w-full max-w-4xl aspect-video">
               <iframe
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
