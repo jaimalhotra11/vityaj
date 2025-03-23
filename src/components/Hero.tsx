@@ -72,7 +72,7 @@ const Hero = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
           {/* Left Side - Text Carousel */}
-          <div className="relative h-[600px] rounded-2xl overflow-hidden bg-white shadow-xl">
+          <div className="relative h-[600px] rounded-2xl overflow-hidden bg-white shadow-xl order-2 lg:order-1">
             <Swiper
               modules={[Autoplay, EffectFade]}
               effect="fade"
@@ -140,7 +140,7 @@ const Hero = () => {
           </div>
 
           {/* Right Side - Video Preview */}
-          <div className="relative h-[600px] rounded-2xl overflow-hidden group cursor-pointer shadow-xl" onClick={() => setIsVideoModalOpen(true)}>
+          <div className="relative h-[600px] rounded-2xl overflow-hidden group cursor-pointer shadow-xl order-1 lg:order-2" onClick={() => setIsVideoModalOpen(true)}>
             <div className="absolute inset-0 bg-[#1a237e] pattern-grid-white/[0.1]" />
             <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
               {/* INDIA Text */}
