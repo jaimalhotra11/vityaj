@@ -81,7 +81,6 @@ function App() {
             <Route path="/" element={
               <>
                 <Hero />
-                <AdmissionFeatures />
                 <StudyDestinations />
                 <Universities />
                 <Accreditations />

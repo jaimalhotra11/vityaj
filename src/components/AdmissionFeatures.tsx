@@ -86,35 +86,15 @@ const AdmissionFeatures = () => {
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-6">
+        {/* Admission Process */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Why Choose Vityaz Global?</h2>
+          <h2 className="text-3xl font-bold mb-4">Admission Process</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            Your trusted partner in international education with a proven admission process
+            A simple and streamlined journey to your international education
           </p>
         </div>
-
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {features.map((feature, index) => (
-            <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="mb-6">{feature.icon}</div>
-              <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">{feature.description}</p>
-              <ul className="space-y-2">
-                {feature.benefits.map((benefit, idx) => (
-                  <li key={idx} className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                    <Star className="w-4 h-4 text-rose-600 flex-shrink-0" />
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Admission Process */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-center mb-12">Admission Process</h3>
+        
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-20">
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Process Timeline Line */}
@@ -136,6 +116,32 @@ const AdmissionFeatures = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold mb-4">Why Choose Vityaz Global?</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300">
+            Your trusted partner in international education with a proven track record
+          </p>
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+          {features.map((feature, index) => (
+            <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="mb-6">{feature.icon}</div>
+              <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">{feature.description}</p>
+              <ul className="space-y-2">
+                {feature.benefits.map((benefit, idx) => (
+                  <li key={idx} className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                    <Star className="w-4 h-4 text-rose-600 flex-shrink-0" />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* CTA */}
