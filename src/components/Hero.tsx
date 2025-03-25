@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/effect-fade';
-import { Play, Search, Download, GraduationCap, Building2, ArrowRight } from 'lucide-react';
+import { Play, Search, Download, GraduationCap, Building2, ArrowRight, PhoneCall } from 'lucide-react';
 import DiscoverIndia from './DiscoverIndia';
 import { Link, useNavigate } from 'react-router-dom';
 import { universities } from '../pages/universities/UniversityList';
@@ -15,22 +15,40 @@ import AdmissionFeatures from './AdmissionFeatures';
 
 const slides = [
   {
-    title: "Thrive In India",
-    subtitle: "India",
-    description: "India is God's own country to explore, with rich traditions, history, culture, and most of these relate to global & universally-acceptable traditions of education, living and principles i.e., One Earth, One Family, One Future",
+    title: "World-Class Education",
+    subtitle: "Affordable Excellence",
+    description: "India is home to top-ranked universities like IITs, IIMs, AIIMS, and NITs, recognized globally for excellence in engineering, business, and medicine. Compared to Western countries, tuition fees and living costs are significantly lower, making it an affordable yet high-quality education option.",
     gradient: "from-orange-600 to-red-600"
   },
   {
-    title: "Cultural Heritage",
-    subtitle: "Diversity",
-    description: "Experience the vibrant tapestry of Indian culture, where ancient wisdom meets modern innovation, creating a unique learning environment that shapes global citizens of tomorrow",
+    title: "Career-Oriented Courses",
+    subtitle: "Future Ready",
+    description: "From AI, data science, cyber security, engineering, Bio Medical courses, Law, Management, Finance, Science, Pharmacy, Optometry, etc Indian universities offer cutting-edge courses aligned with modern industries. All universities use English as the primary language, ensuring ease of learning and communication.",
     gradient: "from-blue-600 to-purple-600"
   },
   {
-    title: "Academic Excellence",
-    subtitle: "Education",
-    description: "Join world-renowned institutions offering cutting-edge programs across disciplines, supported by state-of-the-art infrastructure and distinguished faculty members",
+    title: "Modern India",
+    subtitle: "Innovation Hub",
+    description: "India is a global tech hub leading in IT, software, and innovation. The Make in India and Startup India initiatives are transforming the country into a thriving business and research ecosystem. International students can intern or work with top international companies gaining real-world experience.",
     gradient: "from-green-600 to-teal-600"
+  },
+  {
+    title: "Cultural Melting Pot",
+    subtitle: "Global Experience",
+    description: "India is a land of vibrant traditions, diverse cuisines, and dynamic festivals. With over 100+ nationalities studying in India, universities offer a truly global learning environment where you'll experience everything from Bollywood to yoga retreats.",
+    gradient: "from-purple-600 to-pink-600"
+  },
+  {
+    title: "Thriving Opportunities",
+    subtitle: "Growth & Success",
+    description: "India is one of the fastest-growing economies, creating huge job opportunities in IT, finance, healthcare, and manufacturing. The booming startup ecosystem (3rd largest in the world) makes India a great place for aspiring entrepreneurs.",
+    gradient: "from-yellow-600 to-orange-600"
+  },
+  {
+    title: "Student-Friendly",
+    subtitle: "Affordable Living",
+    description: "Living costs in India are much lower than in the US, UK, or Australia, with affordable accommodation, food, and transport. Students get discounted public transport, budget-friendly hostels, and a welcoming community.",
+    gradient: "from-cyan-600 to-blue-600"
   }
 ];
 
@@ -157,15 +175,25 @@ const Hero = () => {
                           }`}>
                             {slide.description}
                           </p>
-                          <Link to="/apply">
-                            <button className={`bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-1000 delay-700 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 ${
+                          <div className="flex gap-4">
+                            <Link to="/apply">
+                              <button className={`bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-1000 delay-700 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 ${
+                                isActive 
+                                  ? 'translate-y-0 opacity-100' 
+                                  : 'translate-y-4 opacity-0'
+                              }`}>
+                                Apply Now
+                              </button>
+                            </Link>
+                            <button className={`bg-gradient-to-r from-green-500 to-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-1000 delay-700 transform hover:scale-105 hover:shadow-lg hover:shadow-green-500/25 flex items-center gap-2 ${
                               isActive 
                                 ? 'translate-y-0 opacity-100' 
                                 : 'translate-y-4 opacity-0'
                             }`}>
-                              Apply Now
+                              <PhoneCall className="w-5 h-5" />
+                              Free Counselling
                             </button>
-                          </Link>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -222,6 +250,10 @@ const Hero = () => {
               Apply Now
             </button>
           </Link>
+          <button className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-green-500/25">
+            <PhoneCall className="w-5 h-5" />
+            Free Counselling
+          </button>
           <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
             <Download className="w-5 h-5" />
             Download Brochure
