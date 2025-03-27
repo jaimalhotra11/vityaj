@@ -36,19 +36,7 @@ const UniversityPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [expandedDomain, setExpandedDomain] = useState<string | null>(null);
 
-  useEffect(() => {
-    const formattedName = universityName?.replace(/-/g, ' ');
-    const foundUniversity = universities.find(
-      u => u.name.toLowerCase() === formattedName?.toLowerCase()
-    );
-
-    if (foundUniversity) {
-      setUniversity(foundUniversity);
-    } else {
-      setError('University not found');
-    }
-    setLoading(false);
-  }, [universityName]);
+ 
 
   if (loading) {
     return <div className="min-h-screen flex items-center justify-center">Loading...</div>;

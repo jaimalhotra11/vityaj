@@ -53,6 +53,10 @@ import ArtsCourses from './pages/ArtsCourses';
 import ScienceCourses from './pages/ScienceCourses';
 import Courses from './pages/Courses';
 import './i18n/config';
+import LPU from './pages/universities/LPU';
+import Dit from './pages/universities/Dit';
+import CU from './pages/universities/CU';
+import Bennett from './pages/universities/Bennett';
 
 // ScrollToTop component to handle scroll restoration
 function ScrollToTop() {
@@ -101,7 +105,7 @@ function App() {
             <Route path="/universities/rankings" element={<UniversityRankings />} />
             <Route path="/universities/virtual-tours" element={<VirtualTours />} />
             <Route path="/universities/campus-life" element={<CampusLife />} />
-            <Route path="/universities/:universityName" element={<UniversityPage />} />
+            {/* <Route path="/universities/:universityName" element={<UniversityPage />} /> */}
             <Route path="/services" element={<Services />} />
             <Route path="/visa-assistance" element={<VisaAssistance />} />
             <Route path="/accommodation" element={<Accommodation />} />
@@ -127,6 +131,11 @@ function App() {
             <Route path="/partner-universities" element={<UniversityList />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/discover-india" element={<DiscoverIndia />} />
+            <Route path="/universities/lpu" element={<LPU />} />
+            <Route path="/universities/dit" element={<Dit />} />
+            <Route path="/universities/cu" element={<CU />} />
+            <Route path="/universities/bennett" element={<Bennett />} />
+
           </Routes>
           <Footer />
           <WhatsAppButton />

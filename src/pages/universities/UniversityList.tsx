@@ -3,36 +3,9 @@ import { Search, MapPin, GraduationCap, Users, Download, ArrowRight } from 'luci
 import { Link } from 'react-router-dom';
 
 const universities = [
-  {
-    name: "SRM Kattankulathur",
-    location: "Chennai, India",
-    courses: ["MBBS", "MD", "MS"],
-    ranking: "#21 in India",
-    students: "5,000+",
-    fees: "$8,000/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "SRM Ramapuram",
-    location: "Chennai, India",
-    courses: ["Medicine", "Dentistry"],
-    ranking: "Top 1% Worldwide",
-    students: "8,000+",
-    fees: "€8,000/year",
-    image: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "Symbiosis Pune",
-    location: "Pune, India",
-    courses: ["Management", "Law", "Engineering"],
-    ranking: "Top 10 in India",
-    students: "10,000+",
-    fees: "$10,000/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
+ 
+  
+  
   {
     name: "Parul University",
     location: "Vadodara, India",
@@ -43,16 +16,7 @@ const universities = [
     image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
     country: "India"
   },
-  {
-    name: "Graphic Era University",
-    location: "Dehradun, India",
-    courses: ["Engineering", "Management", "Computer Applications"],
-    ranking: "Top 30 in India",
-    students: "12,000+",
-    fees: "$6,000/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
+  
   {
     name: "DIT University",
     location: "Dehradun, India",
@@ -61,7 +25,8 @@ const universities = [
     students: "7,000+",
     fees: "$7,000/year",
     image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
+    country: "India",
+    navigation: "dit",
   },
   {
     name: "Amity University Rajasthan",
@@ -83,16 +48,7 @@ const universities = [
     image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
     country: "India"
   },
-  {
-    name: "Manipal University",
-    location: "Manipal, India",
-    courses: ["Medicine", "Engineering", "Management"],
-    ranking: "Top 15 in India",
-    students: "25,000+",
-    fees: "$12,000/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
+  
   {
     name: "Lovely Professional University (LPU)",
     location: "Punjab, India",
@@ -101,7 +57,8 @@ const universities = [
     students: "30,000+",
     fees: "$6,500/year",
     image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
+    country: "India",
+    navigation: "lpu"
   },
   {
     name: "Chandigarh University",
@@ -111,108 +68,15 @@ const universities = [
     students: "22,000+",
     fees: "$7,500/year",
     image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
+    country: "India",
+    navigation: "CU",
   },
-  {
-    name: "Thapar Institute of Engineering and Technology",
-    location: "Patiala, India",
-    courses: ["Engineering", "Management", "Computer Science"],
-    ranking: "Top 10 in India",
-    students: "10,000+",
-    fees: "$11,000/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "Nirma University",
-    location: "Ahmedabad, India",
-    courses: ["Engineering", "Management", "Pharmacy"],
-    ranking: "Top 20 in India",
-    students: "15,000+",
-    fees: "$8,500/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "VIT Jaipur",
-    location: "Jaipur, India",
-    courses: ["Engineering", "Management", "Computer Applications"],
-    ranking: "Top 30 in India",
-    students: "12,000+",
-    fees: "$7,000/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "Poornima University",
-    location: "Jaipur, India",
-    courses: ["Engineering", "Management", "Design"],
-    ranking: "Top 40 in India",
-    students: "8,000+",
-    fees: "$6,000/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "JECRC University",
-    location: "Jaipur, India",
-    courses: ["Engineering", "Management", "Science"],
-    ranking: "Top 50 in India",
-    students: "10,000+",
-    fees: "$5,500/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "NMIMS Mumbai",
-    location: "Mumbai, India",
-    courses: ["Management", "Engineering", "Pharmacy"],
-    ranking: "Top 10 in India",
-    students: "20,000+",
-    fees: "$12,000/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "Presidency University",
-    location: "Bengaluru, India",
-    courses: ["Management", "Law", "Commerce"],
-    ranking: "Top 25 in India",
-    students: "5,000+",
-    fees: "$9,000/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "NIT Silchar",
-    location: "Silchar, India",
-    courses: ["Engineering", "Management", "Science"],
-    ranking: "Top 20 in India",
-    students: "5,000+",
-    fees: "$3,000/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "GITAM University",
-    location: "Visakhapatnam, India",
-    courses: ["Engineering", "Management", "Pharmacy"],
-    ranking: "Top 50 in India",
-    students: "10,000+",
-    fees: "$4,500/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "Hindustan Institute of Technology and Science (HITS)",
-    location: "Chennai, India",
-    courses: ["Engineering", "Management", "Architecture"],
-    ranking: "Top 40 in India",
-    students: "8,000+",
-    fees: "$5,000/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
+  
+  
+  
+  
+ 
+  
   {
     name: "Bennet University",
     location: "Greater Noida, India",
@@ -221,78 +85,10 @@ const universities = [
     students: "6,000+",
     fees: "$7,000/year",
     image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
+    country: "India",
+    navigation: "bennett",
   },
-  {
-    name: "Vignan University",
-    location: "Guntur, India",
-    courses: ["Engineering", "Management", "Pharmacy"],
-    ranking: "Top 60 in India",
-    students: "12,000+",
-    fees: "$3,500/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "Manav Rachna University",
-    location: "Faridabad, India",
-    courses: ["Engineering", "Management", "Design"],
-    ranking: "Top 70 in India",
-    students: "9,000+",
-    fees: "$4,000/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "Alliance University",
-    location: "Bengaluru, India",
-    courses: ["Management", "Law", "Commerce"],
-    ranking: "Top 25 in India",
-    students: "7,000+",
-    fees: "$8,500/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "Acharya Bangalore B School",
-    location: "Bengaluru, India",
-    courses: ["Management", "Commerce", "Finance"],
-    ranking: "Top 35 in India",
-    students: "3,000+",
-    fees: "$6,500/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "SRM University AP",
-    location: "Amaravati, India",
-    courses: ["Engineering", "Management", "Science"],
-    ranking: "Top 50 in India",
-    students: "5,000+",
-    fees: "$5,500/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "Christ University",
-    location: "Bengaluru, India",
-    courses: ["Management", "Law", "Commerce"],
-    ranking: "Top 20 in India",
-    students: "10,000+",
-    fees: "$7,500/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
-  {
-    name: "Atria Institute of Technology",
-    location: "Bengaluru, India",
-    courses: ["Engineering", "Management", "Design"],
-    ranking: "Top 40 in India",
-    students: "4,000+",
-    fees: "$4,500/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  }
+  
 ];
 
 const UniversityList = () => {
@@ -389,7 +185,7 @@ const UniversityList = () => {
                       Download Brochure
                     </a>
                     <Link 
-                      to={`/universities/${university.name.toLowerCase().replace(/ /g, '-')}`}
+                      to={`/universities/${university?.navigation}`}
                       className="w-full bg-rose-600 text-white py-2 rounded-lg hover:bg-rose-700 transition-colors flex items-center justify-center gap-2"
                     >
                       Apply Now
