@@ -57,6 +57,10 @@ import LPU from './pages/universities/LPU';
 import Dit from './pages/universities/Dit';
 import CU from './pages/universities/CU';
 import Bennett from './pages/universities/Bennett';
+import Symboisis from './pages/universities/Symboisis';
+import Srm from './pages/universities/Srm';
+import Amity from './pages/universities/Amity';
+
 
 // ScrollToTop component to handle scroll restoration
 function ScrollToTop() {
@@ -135,6 +139,9 @@ function App() {
             <Route path="/universities/dit" element={<Dit />} />
             <Route path="/universities/cu" element={<CU />} />
             <Route path="/universities/bennett" element={<Bennett />} />
+            <Route path="/universities/symboisis" element={<Symboisis />} />
+            <Route path="/universities/srm" element={<Srm />} />
+            <Route path="/universities/amity" element={<Amity />} />
 
           </Routes>
           <Footer />

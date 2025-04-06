@@ -187,9 +187,7 @@ function App() {
                               <p className="text-md text-purple-600 mb-3">Duration: {course.duration}</p>
                               <p className="text-gray-700">{course.description}</p>
                             </div>
-                            <button className="bg-purple-100 text-purple-700 px-3 py-1 rounded text-sm hover:bg-purple-200 transition">
-                              More Details
-                            </button>
+                          
                           </div>
                         </div>
                       ))}

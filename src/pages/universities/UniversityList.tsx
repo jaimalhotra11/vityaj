@@ -29,25 +29,17 @@ const universities = [
     navigation: "dit",
   },
   {
-    name: "Amity University Rajasthan",
-    location: "Jaipur, India",
+    name: "Amity University ",
+    location: "Multiple Locations",
     courses: ["Engineering", "Management", "Law"],
     ranking: "Top 20 in India",
     students: "20,000+",
     fees: "$9,000/year",
     image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
+    country: "India",
+    navigation: "amity",
   },
-  {
-    name: "Amity University Gurgaon",
-    location: "Gurgaon, India",
-    courses: ["Engineering", "Management", "Biotechnology"],
-    ranking: "Top 25 in India",
-    students: "18,000+",
-    fees: "$9,500/year",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    country: "India"
-  },
+ 
   
   {
     name: "Lovely Professional University (LPU)",
@@ -87,6 +79,30 @@ const universities = [
     image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
     country: "India",
     navigation: "bennett",
+  },
+
+  {
+    name: "Symboisis International",
+    location: "Ghaziabad, India",
+    courses: ["Engineering", "Management", "Law"],
+    ranking: "Top 50 in India",
+    students: "22,000+",
+    fees: "$7,500/year",
+    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    country: "India",
+    navigation: "Symboisis",
+  },
+
+  {
+    name: "SRM University",
+    location: "Multiple Locations",
+    courses: ["Engineering", "Management", "Law"],
+    ranking: "Top 50 in India",
+    students: "22,000+",
+    fees: "$7,500/year",
+    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    country: "India",
+    navigation: "SRM",
   },
   
 ];
