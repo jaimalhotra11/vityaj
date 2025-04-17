@@ -110,6 +110,17 @@ const AdmissionProcess = () => {
                     </li>
                   ))}
                 </ul>
+                {index === 0 && (
+                  <div className="mt-6">
+                    <Link
+                      to="/apply"
+                      className="inline-flex items-center justify-center w-full gap-2 bg-rose-600 text-white px-4 py-2 rounded-lg hover:bg-rose-700 transition-colors font-semibold text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                      Apply Now
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           ))}
