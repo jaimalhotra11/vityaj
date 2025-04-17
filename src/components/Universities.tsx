@@ -7,26 +7,44 @@ import 'swiper/css/pagination';
 const Universities = () => {
   const universities = [
     {
-      name: "All India Institute of Medical Sciences",
-      location: "New Delhi, India",
+      name: "Amity University",
+      location: "Multiple Locations",
       image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-      ranking: "#1 Medical University in India"
+      ranking: "#1 Engineering University in India"
     },
     {
-      name: "Charles University",
-      location: "Prague, Czech Republic",
+      name: "Bennett University",
+      location: "Greater Noida, India",
       image: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-      ranking: "Top Medical University in Europe"
+      ranking: "Top University in India"
     },
     {
-      name: "University of Delhi",
-      location: "Delhi, India",
+      name: "Chandigarh University",
+      location: "Chandigarh, India",
       image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
       ranking: "QS World Rankings: Top 500"
     },
     {
-      name: "Masaryk University",
-      location: "Brno, Czech Republic",
+      name: "Dehradun Institute of Technology University",
+      location: "Dehradun, India",
+      image: "https://images.unsplash.com/photo-1576495199011-eb94736d05d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      ranking: "Leading Research University"
+    },
+    {
+      name: "Lovely Professional University",
+      location: "Jalandhar, India",
+      image: "https://images.unsplash.com/photo-1576495199011-eb94736d05d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      ranking: "Leading Research University"
+    },
+    {
+      name: "SRM University",
+      location: "Multiple Locations",
+      image: "https://images.unsplash.com/photo-1576495199011-eb94736d05d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      ranking: "Leading Research University"
+    },
+    {
+      name: "Symboisis University",
+      location: "Multiple Locations",
       image: "https://images.unsplash.com/photo-1576495199011-eb94736d05d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
       ranking: "Leading Research University"
     }

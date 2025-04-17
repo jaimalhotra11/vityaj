@@ -60,6 +60,7 @@ import Bennett from './pages/universities/Bennett';
 import Symboisis from './pages/universities/Symboisis';
 import Srm from './pages/universities/Srm';
 import Amity from './pages/universities/Amity';
+import AdmissionProcess from './components/AdmissionProcess';
 
 
 // ScrollToTop component to handle scroll restoration
@@ -89,7 +90,6 @@ function App() {
             <Route path="/" element={
               <>
                 <Hero />
-                <StudyDestinations />
                 <Universities />
                 <Accreditations />
                 <Testimonials />
@@ -118,6 +118,7 @@ function App() {
             <Route path="/downloads" element={<Downloads />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/student-stories" element={<StudentStories />} />
+            <Route path="/admission-process" element={<AdmissionProcess />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/apply" element={<Apply />} />
@@ -142,6 +143,7 @@ function App() {
             <Route path="/universities/symboisis" element={<Symboisis />} />
             <Route path="/universities/srm" element={<Srm />} />
             <Route path="/universities/amity" element={<Amity />} />
+            
 
           </Routes>
           <Footer />

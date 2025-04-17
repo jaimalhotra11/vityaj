@@ -12,6 +12,7 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import AdmissionFeatures from './AdmissionFeatures';
+import AdmissionProcess from './AdmissionProcess';
 
 const slides = [
   {
@@ -276,6 +277,7 @@ const Hero = () => {
       </div>
 
       {/* Discover India Section */}
+      <AdmissionProcess />
       <AdmissionFeatures />
       <DiscoverIndia />
     </div>
